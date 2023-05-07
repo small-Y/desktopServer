@@ -53,6 +53,13 @@ const {getThemeList} = require('./system/getThemeList')
 const {SetTheme} = require('./system/SetTheme')
 const {SetWrapper} = require('./system/SetWrapper')
 
+// 添加天气数据
+const {initWeather} = require('./weather/initWeather')
+setInterval(() => {
+    // console.log('后台天气数据更新')
+    initWeather();
+}, 5*60*1000);    //5*60*1000
+
 //一个简单的测试接口   连接数据库表   test为表名
 app.get('/test',(req,res)=>{
     res.send('测试用的接口')

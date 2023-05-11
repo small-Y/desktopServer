@@ -16,7 +16,8 @@ function conPgsql(sql,callback){
     // "SELECT * from users";
     client.query(sql , function(err, result) {
         if(err) {
-            return console.log(err+'err')
+            console.log(err+'err')
+            return callback(err);
         }else{
             // let res = JSON.parse(JSON.stringify(result))
             // console.log(res.rows+'rows');

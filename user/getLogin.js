@@ -7,16 +7,17 @@
  * @FilePath: server\index.js
  */
 
-const  client = require('../pgConnect')
+const  client = require('../sqldb/pgConnect')
 
 
 function getLogin(username,callback){
-    if(username==undefined||username=='未定账户'){
+    if(username==undefined||username=='未定账户'||username=='undefined'){
         var loginUser={
             loginStatus:false,
             userID:'',
-            username:'未定账户',
-            age:''
+            username:'',
+            age:'',
+            userType:'未定账户'
         };
         return callback(loginUser);
     } else {
@@ -41,6 +42,7 @@ function getLogin(username,callback){
                         loginUser.userType=ele.userType;
                         loginUser.userSign=ele.userSign;
                         loginUser.userPic=ele.userPic;
+                        loginUser.clientIP=ele.clientIP;
                     }
                 }
                 // console.log(loginUser)

@@ -11,7 +11,7 @@
 const fs = require('fs');
 const axios =require("axios");
 
-const  client = require('../pgConnect')
+const  client = require('../sqldb/pgConnect')
 
 function initWeather(){
     const nowTime = new Date();

@@ -7,7 +7,7 @@
  * @FilePath: server\index.js
  */
 
-const  client = require('../pgConnect')
+const  client = require('../sqldb/pgConnect')
 
 
 function LoginOut(username,callback){

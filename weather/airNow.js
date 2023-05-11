@@ -9,22 +9,16 @@
 
 const  client = require('../sqldb/pgConnect')
 
-
-function getThemeList(callback){
-    let sql = `SELECT * from "theme";SELECT * from "wrapper"`
+function airNow(callback){
+    let sql = `select * from dayair order by "updateTime" desc`
     client.query(sql , function(err, result) {
         if(err) {
             return console.log(err+'err')
         }else{
-            // console.log(result)
-            var config={};
-            config.themeList=result[0].rows;
-            config.wrapperList=result[1].rows;
-            return callback(config);
+            // 
+            return callback(result.rows[0]);
         }
     });
 }
 
-
-
-exports.getThemeList = getThemeList;
+exports.airNow = airNow;

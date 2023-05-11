@@ -7,15 +7,14 @@
  * @FilePath: server\index.js
  */
 
-const  client = require('../pgConnect')
+const  client = require('../sqldb/pgConnect')
 
 
 function UploadPic(obj,callback){
-    var userID = obj.userID;
-    var file = obj.file;
-    console.log(file.originalFilename)
-    console.log(userID)
-    let sql = `UPDATE "users" SET "userPic" = '/static/images/user/`+file.name+`' WHERE  "userID" = '`+userID+`'`
+    var username = obj.username;
+    var imgsrc = obj.imgsrc;
+    console.log(username)
+    let sql = `UPDATE "users" SET "userPic" = '`+imgsrc+`' WHERE  "username" = '`+username+`'`
     client.query(sql , function(err, result) {
         if(err) {
             return console.log(err+'err')

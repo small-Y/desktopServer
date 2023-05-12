@@ -18,7 +18,7 @@ app.use(cors())
 
 
 // 公开静态文件夹，匹配`虚拟路径img` 到 `真实路径public` 注意这里  /img/ 前后必须都要有斜杠！！！
-app.use('/img/', express.static('./upload/'))
+app.use('/img/', express.static('./uploads/'))
 
 // 处理 x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: false }))
